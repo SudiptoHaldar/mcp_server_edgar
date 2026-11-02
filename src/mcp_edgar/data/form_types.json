@@ -1,0 +1,3182 @@
+{
+  "form_types": [
+    {
+      "amendment": false,
+      "description": "Statement of changes in beneficial ownership of securities",
+      "filings": 358173,
+      "form": "4",
+      "topics": [
+        "Directors",
+        "Officers",
+        "Securities Exchange Act of 1934",
+        "Significant Shareholders",
+        "Investors"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 197088,
+      "form": "424B2",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Notice of proposed sale of securities pursuant to Rule 144",
+      "filings": 74184,
+      "form": "144",
+      "topics": [
+        "Securities Act of 1933",
+        "Investors"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Current report pursuant to Section 13 or 15(d)",
+      "filings": 65640,
+      "form": "8-K",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Monthly Portfolio Investments Report",
+      "filings": 54222,
+      "form": "NPORT-P",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Initial statement of beneficial ownership of securities",
+      "filings": 45685,
+      "form": "3",
+      "topics": [
+        "Directors",
+        "Officers",
+        "Securities Exchange Act of 1934",
+        "Significant Shareholders",
+        "Investors"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Notice of Exempt Offering of Securities",
+      "filings": 40642,
+      "form": "D",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Information required of institutional investment managers pursuant to Section 13(f)",
+      "filings": 36157,
+      "form": "13F-HR",
+      "topics": [
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 35792,
+      "form": "SCHEDULE 13G/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Report of foreign private issuer pursuant to Rule 13a-16 or 15d-16 under the Securities Exchange Act of 1934",
+      "filings": 28364,
+      "form": "6-K",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies",
+        "International"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 27251,
+      "form": "FWP",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Notice of Exempt Offering of Securities",
+      "filings": 23230,
+      "form": "D/A",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 21850,
+      "form": "SCHEDULE 13G",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 21704,
+      "form": "497K",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "General form for quarterly reports under Section 13 or 15(d)",
+      "filings": 17313,
+      "form": "10-Q",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 14509,
+      "form": "497",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Annual Report of Proxy Voting Record of Registered Management Investment Company",
+      "filings": 12110,
+      "form": "N-PX",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Asset-Backed Issuer Distribution Report Pursuant to Section 13 or 15(d) of the Securities Exchange Act of 1934",
+      "filings": 11282,
+      "form": "10-D",
+      "topics": [
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 10595,
+      "form": "424B3",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Form for Submission of Electronic Exhibits for Asset-Backed Securities",
+      "filings": 9493,
+      "form": "ABS-EE",
+      "topics": [
+        "Securities Act of 1933"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 8560,
+      "form": "SCHEDULE 13D/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Information required of institutional investment managers pursuant to Section 13(f)",
+      "filings": 7761,
+      "form": "13F-NT",
+      "topics": [
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 6931,
+      "form": "40-APP/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 6803,
+      "form": "DEFA14A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Annual report pursuant to Section 13 or 15(d)",
+      "filings": 6723,
+      "form": "10-K",
+      "topics": [
+        "Form 10-K",
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 6564,
+      "form": "425",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 5989,
+      "form": "424B5",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Statement of changes in beneficial ownership of securities",
+      "filings": 5560,
+      "form": "4/A",
+      "topics": [
+        "Directors",
+        "Officers",
+        "Securities Exchange Act of 1934",
+        "Significant Shareholders",
+        "Investors"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 5326,
+      "form": "497J",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 5189,
+      "form": "DEF 14A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Annual notice of securities sold pursuant to Rule 24-f2 (with amendments adopted in 2024 RILAs release)",
+      "filings": 5177,
+      "form": "24F-2NT",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 5162,
+      "form": "485BPOS",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 5143,
+      "form": "485BXT",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 4007,
+      "form": "EFFECT",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Monthly Schedule of Portfolio Holdings of Money Market Funds",
+      "filings": 3817,
+      "form": "N-MFP3",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Annual Report for Registered Investment Companies",
+      "filings": 3289,
+      "form": "N-CEN",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Certified shareholder report of registered management investment companies",
+      "filings": 3286,
+      "form": "N-CSRS",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Certified shareholder report of registered management investment companies",
+      "filings": 3280,
+      "form": "N-CSR",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 3135,
+      "form": "X-17A-5",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 3106,
+      "form": "ARS",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 3106,
+      "form": "CORRESP",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Asset-Backed Securitizer Report",
+      "filings": 2956,
+      "form": "ABS-15G",
+      "topics": [
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 2882,
+      "form": "497VPU",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 2856,
+      "form": "40-APP",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement under Securities Act of 1933 to be offered to employees pursuant to certain plans",
+      "filings": 2687,
+      "form": "S-8",
+      "topics": [
+        "Securities Act of 1933",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 2286,
+      "form": "40-17G",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 2278,
+      "form": "SCHEDULE 13D",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Annual statement of changes in beneficial ownership of securities",
+      "filings": 2275,
+      "form": "5",
+      "topics": [
+        "Directors",
+        "Officers",
+        "Securities Exchange Act of 1934",
+        "Significant Shareholders",
+        "Investors"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement under Securities Act of 1933 to be offered to employees pursuant to certain plans",
+      "filings": 2187,
+      "form": "S-8 POS",
+      "topics": [
+        "Securities Act of 1933",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Registration of certain classes of securities pursuant to Section 12(b) or (g)",
+      "filings": 1929,
+      "form": "8-A12B",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1842,
+      "form": "485APOS",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Notification of the removal from listing and registration of matured, redeemed or retired securities",
+      "filings": 1796,
+      "form": "25-NSE",
+      "topics": [
+        "Public Companies",
+        "Self-Regulatory Organizations"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1775,
+      "form": "497VPI",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1755,
+      "form": "CERT",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1702,
+      "form": "S-3ASR",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Current Report Pursuant to Regulation A",
+      "filings": 1654,
+      "form": "1-U",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1563,
+      "form": "UPLOAD",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement under Securities Act of 1933",
+      "filings": 1561,
+      "form": "S-1/A",
+      "topics": [
+        "Securities Act of 1933",
+        "Public Companies",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Current report pursuant to Section 13 or 15(d)",
+      "filings": 1464,
+      "form": "8-K/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1426,
+      "form": "PRE 14A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Information required of institutional investment managers pursuant to Section 13(f)",
+      "filings": 1402,
+      "form": "13F-HR/A",
+      "topics": [
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Initial statement of beneficial ownership of securities",
+      "filings": 1393,
+      "form": "3/A",
+      "topics": [
+        "Directors",
+        "Officers",
+        "Securities Exchange Act of 1934",
+        "Significant Shareholders",
+        "Investors"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Specialized Disclosure Report",
+      "filings": 1144,
+      "form": "SD",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Registration under 1933 act of securities of unit investment trusts registered on form N-8B-2",
+      "filings": 1113,
+      "form": "S-6",
+      "topics": [
+        "Securities Act of 1933",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Information Regarding Natural Persons who Engage in Municipal Advisory Activities",
+      "filings": 1107,
+      "form": "MA-I/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Municipal Advisors"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement / Annual report / Transition report",
+      "filings": 1098,
+      "form": "20-F",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies",
+        "International"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1066,
+      "form": "DFAN14A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement under Securities Act of 1933",
+      "filings": 1063,
+      "form": "S-1",
+      "topics": [
+        "Securities Act of 1933",
+        "Public Companies",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1034,
+      "form": "POS AM",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Notification of late filing",
+      "filings": 966,
+      "form": "NT 10-Q",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 945,
+      "form": "POSASR",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement under Securities Act of 1933",
+      "filings": 933,
+      "form": "S-3",
+      "topics": [
+        "Securities Act of 1933",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 887,
+      "form": "487",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Form C",
+      "filings": 845,
+      "form": "C/A",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Form C",
+      "filings": 834,
+      "form": "C",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Annual reports of employee stock purchase, savings and similar plans pursuant to Section 15(d)",
+      "filings": 806,
+      "form": "11-K",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 792,
+      "form": "F-6EF",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 752,
+      "form": "SC TO-I/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Notice of proposed sale of securities pursuant to Rule 144",
+      "filings": 748,
+      "form": "144/A",
+      "topics": [
+        "Securities Act of 1933",
+        "Investors"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 704,
+      "form": "DRS",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 703,
+      "form": "C-AR",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 667,
+      "form": "N-VPFS",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 634,
+      "form": "DRS/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 632,
+      "form": "N-23C3A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 620,
+      "form": "40-17F2",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Annual report pursuant to Section 13 or 15(d)",
+      "filings": 616,
+      "form": "10-K/A",
+      "topics": [
+        "Form 10-K",
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 606,
+      "form": "SC TO-I",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Notification of late filing",
+      "filings": 592,
+      "form": "NT 10-K",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement for securities of certain foreign private issuers",
+      "filings": 583,
+      "form": "F-1/A",
+      "topics": [
+        "Securities Act of 1933",
+        "International"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Monthly Portfolio Investments Report",
+      "filings": 575,
+      "form": "NPORT-P/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 574,
+      "form": "424B4",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement under Securities Act of 1933",
+      "filings": 561,
+      "form": "S-4/A",
+      "topics": [
+        "Securities Act of 1933",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Application for registration or exemption from registration as a national securities exchange",
+      "filings": 537,
+      "form": "1/A",
+      "topics": [
+        "Self-Regulatory Organizations"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 521,
+      "form": "C-U",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 489,
+      "form": "N-VP",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 479,
+      "form": "N-VP/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 476,
+      "form": "POS EX",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Annual Reports and Special Financial Reports",
+      "filings": 462,
+      "form": "1-K",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 432,
+      "form": "15-12G",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Information Regarding Natural Persons who Engage in Municipal Advisory Activities",
+      "filings": 407,
+      "form": "MA-I",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Municipal Advisors"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 404,
+      "form": "DEF 14C",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement under Securities Act of 1933",
+      "filings": 376,
+      "form": "S-4",
+      "topics": [
+        "Securities Act of 1933",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 375,
+      "form": "MA-A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 374,
+      "form": "F-6 POS",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement for securities of certain foreign private issuers",
+      "filings": 366,
+      "form": "F-1",
+      "topics": [
+        "Securities Act of 1933",
+        "International"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 365,
+      "form": "497AD",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 360,
+      "form": "N-30B-2",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 345,
+      "form": "SC TO-T/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Report of foreign private issuer pursuant to Rule 13a-16 or 15d-16 under the Securities Exchange Act of 1934",
+      "filings": 343,
+      "form": "6-K/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies",
+        "International"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 325,
+      "form": "253G2",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement for securities of certain foreign private issuers",
+      "filings": 317,
+      "form": "F-3",
+      "topics": [
+        "Securities Act of 1933",
+        "International"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 313,
+      "form": "RW",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Exit Report Under Regulation A",
+      "filings": 307,
+      "form": "1-Z",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement for closed-end management investment companies",
+      "filings": 301,
+      "form": "N-2/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 290,
+      "form": "424H",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 273,
+      "form": "424B7",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 269,
+      "form": "DEFM14A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement under Securities Act of 1933",
+      "filings": 262,
+      "form": "S-3/A",
+      "topics": [
+        "Securities Act of 1933",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 259,
+      "form": "APP WD",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 256,
+      "form": "PX14A6G",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Form for reporting activities of transfer agents",
+      "filings": 252,
+      "form": "TA-2",
+      "topics": [
+        "Transfer Agents"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 246,
+      "form": "486BPOS",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "General form for quarterly reports under Section 13 or 15(d)",
+      "filings": 240,
+      "form": "10-Q/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 240,
+      "form": "PRE 14C",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 239,
+      "form": "AW",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 226,
+      "form": "QUALIF",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Regulation A Offering Statement",
+      "filings": 206,
+      "form": "1-A/A",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 203,
+      "form": "497VPSUB",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Appointment of agent for service of process and undertaking",
+      "filings": 197,
+      "form": "F-X",
+      "topics": [
+        "Securities Act of 1933",
+        "International"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Semiannual Report or Special Financial Report Pursuant to Regulation A",
+      "filings": 196,
+      "form": "1-SA",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Uniform form for registration as a transfer agent and for amendment to registration",
+      "filings": 196,
+      "form": "TA-1/A",
+      "topics": [
+        "Transfer Agents"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement for closed-end management investment companies",
+      "filings": 193,
+      "form": "N-2",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Registration under 1933 act of securities of unit investment trusts registered on form N-8B-2",
+      "filings": 193,
+      "form": "S-6/A",
+      "topics": [
+        "Securities Act of 1933",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 191,
+      "form": "IRANNOTICE",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 187,
+      "form": "15-15D",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 183,
+      "form": "305B2",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 179,
+      "form": "1-A POS",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 179,
+      "form": "424B8",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Instructions for the Form MA Series",
+      "filings": 177,
+      "form": "MA/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Municipal Advisors"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Annual Report of Proxy Voting Record of Registered Management Investment Company",
+      "filings": 175,
+      "form": "N-PX/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Notification of late filing",
+      "filings": 175,
+      "form": "NT 20-F",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 167,
+      "form": "APP NTC",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 166,
+      "form": "N-30D",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 165,
+      "form": "APP ORDR",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 163,
+      "form": "PREM14A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Asset-Backed Issuer Distribution Report Pursuant to Section 13 or 15(d) of the Securities Exchange Act of 1934",
+      "filings": 162,
+      "form": "10-D/A",
+      "topics": [
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 161,
+      "form": "NT NPORT-P",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 156,
+      "form": "POS AMI",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement pursuant to Section 12 or annual report pursuant to Section 13(a) or 15(d)",
+      "filings": 153,
+      "form": "40-F",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies",
+        "International"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement for securities of certain foreign private issuers issued in certain business combination transactions",
+      "filings": 153,
+      "form": "F-4/A",
+      "topics": [
+        "Securities Act of 1933",
+        "International"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Regulation A Offering Statement",
+      "filings": 152,
+      "form": "1-A",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 149,
+      "form": "C-TR",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 149,
+      "form": "DEFR14A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 149,
+      "form": "SC TO-C",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 148,
+      "form": "N-23C-2",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Form for the registration of securities issued in business combination transactions by investment companies and business development companies",
+      "filings": 146,
+      "form": "N-14",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 144,
+      "form": "X-17A-5/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Certified shareholder report of registered management investment companies",
+      "filings": 143,
+      "form": "N-CSR/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 143,
+      "form": "PRER14A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement under the Securities Act of 1933 for depositary shares evidenced by American depositary receipts",
+      "filings": 142,
+      "form": "F-6",
+      "topics": [
+        "Securities Act of 1933",
+        "International"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Asset-Backed Securitizer Report",
+      "filings": 140,
+      "form": "ABS-15G/A",
+      "topics": [
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement for securities of certain foreign private issuers",
+      "filings": 135,
+      "form": "F-3/A",
+      "topics": [
+        "Securities Act of 1933",
+        "International"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Annual Report for Registered Investment Companies",
+      "filings": 135,
+      "form": "N-CEN/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 135,
+      "form": "SC 14D9/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 135,
+      "form": "SEC STAFF ACTIO",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 135,
+      "form": "SUPPL",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Annual report for foreign governments and political subdivisions thereof",
+      "filings": 133,
+      "form": "18-K/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "International"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Notification of the removal from listing and registration of matured, redeemed or retired securities",
+      "filings": 128,
+      "form": "25",
+      "topics": [
+        "Public Companies",
+        "Self-Regulatory Organizations"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement / Annual report / Transition report",
+      "filings": 123,
+      "form": "20-F/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies",
+        "International"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Registration of certain classes of securities pursuant to Section 12(b) or (g)",
+      "filings": 121,
+      "form": "8-A12B/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 121,
+      "form": "SC 13E3/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Application for Registration of Security-based Swap Dealers and Major Security-based Swap Participants that are Registered or Registering with the Commodity Futures Trading Commission as a Swap Dealer",
+      "filings": 120,
+      "form": "SBSE-A/A",
+      "topics": [
+        "Dodd-Frank Act of 2010",
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 119,
+      "form": "40-17G/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 117,
+      "form": "PREC14A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Information required of institutional investment managers pursuant to Section 13(f)",
+      "filings": 115,
+      "form": "13F-NT/A",
+      "topics": [
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 113,
+      "form": "DEFC14A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Monthly Schedule of Portfolio Holdings of Money Market Funds",
+      "filings": 113,
+      "form": "N-MFP3/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Tender offer/rights offering notification form",
+      "filings": 107,
+      "form": "CB",
+      "topics": [
+        "Proxy and Tender Offer",
+        "Securities Act of 1933",
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 104,
+      "form": "424I",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 103,
+      "form": "ATS-N/UA",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 103,
+      "form": "DSTRBRPT",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Notification of registration filed pursuant to Section 8(a) of Investment Company Act of 1940",
+      "filings": 98,
+      "form": "N-8A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Application for deregistration of certain registered investment companies",
+      "filings": 96,
+      "form": "N-8F",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 95,
+      "form": "10-12G/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 90,
+      "form": "N-8F ORDR",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 89,
+      "form": "S-1MEF",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 87,
+      "form": "N-8F NTC",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 80,
+      "form": "10-12G",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 79,
+      "form": "SC TO-T",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Tender offer/rights offering notification form",
+      "filings": 76,
+      "form": "CB/A",
+      "topics": [
+        "Proxy and Tender Offer",
+        "Securities Act of 1933",
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 73,
+      "form": "DEL AM",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 72,
+      "form": "F-3ASR",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 67,
+      "form": "SC14D9C",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement for securities of certain Canadian issuers",
+      "filings": 65,
+      "form": "F-10",
+      "topics": [
+        "Securities Act of 1933",
+        "International"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement for securities of certain foreign private issuers issued in certain business combination transactions",
+      "filings": 64,
+      "form": "F-4",
+      "topics": [
+        "Securities Act of 1933",
+        "International"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 64,
+      "form": "PRRN14A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 61,
+      "form": "40-17F1",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 58,
+      "form": "C-W",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 57,
+      "form": "ATS-N/MA",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Form for Submission of Electronic Exhibits for Asset-Backed Securities",
+      "filings": 56,
+      "form": "ABS-EE/A",
+      "topics": [
+        "Securities Act of 1933"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Certified shareholder report of registered management investment companies",
+      "filings": 48,
+      "form": "N-CSRS/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 46,
+      "form": "486APOS",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration of certain classes of securities pursuant to Section 12(b) or (g)",
+      "filings": 45,
+      "form": "8-A12G",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 45,
+      "form": "N-14 8C/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 45,
+      "form": "NT N-CEN",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 42,
+      "form": "DFRN14A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Registration form for open-end management investment companies",
+      "filings": 42,
+      "form": "N-1A/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Form for reporting activities of transfer agents",
+      "filings": 41,
+      "form": "TA-2/A",
+      "topics": [
+        "Transfer Agents"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 40,
+      "form": "SC 14D9",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 39,
+      "form": "REVOKED",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Notification of the removal from listing and registration of matured, redeemed or retired securities",
+      "filings": 38,
+      "form": "25-NSE/A",
+      "topics": [
+        "Public Companies",
+        "Self-Regulatory Organizations"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 37,
+      "form": "F-10POS",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Annual report for foreign governments and political subdivisions thereof",
+      "filings": 36,
+      "form": "18-K",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "International"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 36,
+      "form": "40-24B2",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Annual statement of changes in beneficial ownership of securities",
+      "filings": 36,
+      "form": "5/A",
+      "topics": [
+        "Directors",
+        "Officers",
+        "Securities Exchange Act of 1934",
+        "Significant Shareholders",
+        "Investors"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 35,
+      "form": "10-12B/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Annual notice of securities sold pursuant to Rule 24-f2 (with amendments adopted in 2024 RILAs release)",
+      "filings": 35,
+      "form": "24F-2NT/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 35,
+      "form": "SC 13E3",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Application for deregistration of certain registered investment companies",
+      "filings": 33,
+      "form": "N-8F/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Form for the registration of securities issued in business combination transactions by investment companies and business development companies",
+      "filings": 32,
+      "form": "N-14/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 32,
+      "form": "N-2ASR",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement of separate accounts organized as unit investment trusts (with amendments adopted in 2024 RILAs release)",
+      "filings": 32,
+      "form": "N-4",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 30,
+      "form": "1-A-W",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 29,
+      "form": "40-6B/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 29,
+      "form": "8-K12B",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement for securities of certain Canadian issuers",
+      "filings": 29,
+      "form": "F-10/A",
+      "topics": [
+        "Securities Act of 1933",
+        "International"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 29,
+      "form": "G-FIN/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 28,
+      "form": "APP WDG",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 28,
+      "form": "N-14 8C",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Notification of late filing",
+      "filings": 28,
+      "form": "NT 10-Q/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 28,
+      "form": "SEC STAFF LETTE",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Registration of securities of certain real estate companies",
+      "filings": 27,
+      "form": "S-11/A",
+      "topics": [
+        "Securities Act of 1933",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Application or Amendment to Application for Registration or Withdrawal from Registration as Funding Portal Under the Securities Exchange Act of 1934",
+      "filings": 26,
+      "form": "CFPORTAL/A",
+      "topics": [
+        "Funding Portal",
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 26,
+      "form": "N-VPFS/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 26,
+      "form": "NRSRO-UPD",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 25,
+      "form": "253G1",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 25,
+      "form": "424B1",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 25,
+      "form": "SC 13D/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Uniform form for registration as a transfer agent and for amendment to registration",
+      "filings": 25,
+      "form": "TA-1",
+      "topics": [
+        "Transfer Agents"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 23,
+      "form": "486BXT",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 23,
+      "form": "C-AR/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 23,
+      "form": "NT-NCSR",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 22,
+      "form": "DRSLTR",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration form for open-end management investment companies",
+      "filings": 22,
+      "form": "N-1A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 22,
+      "form": "QRTLYRPT",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 21,
+      "form": "10-12B",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 21,
+      "form": "ATS-N/CA",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Notice of Withdrawal from Registration as a Municipal Advisor",
+      "filings": 21,
+      "form": "MA-W",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Municipal Advisors"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 20,
+      "form": "CT ORDER",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement under the Securities Act of 1933 for depositary shares evidenced by American depositary receipts",
+      "filings": 20,
+      "form": "F-6/A",
+      "topics": [
+        "Securities Act of 1933",
+        "International"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Application for registration as a municipal securities dealer or amendment to such application",
+      "filings": 20,
+      "form": "MSD/A",
+      "topics": [
+        "Municipal Securities"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Notification of election to be subject to Sections 55-65 of the Investment Company Act of 1940",
+      "filings": 20,
+      "form": "N-54A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement of separate accounts organized as unit investment trusts (with amendments adopted in 2024 RILAs release)",
+      "filings": 19,
+      "form": "N-4/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 19,
+      "form": "PRER14C",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration of securities of certain real estate companies",
+      "filings": 19,
+      "form": "S-11",
+      "topics": [
+        "Securities Act of 1933",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 18,
+      "form": "40-33",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 18,
+      "form": "40FR12B",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 18,
+      "form": "DEFM14C",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement for separate accounts organized as unit investment trusts that offer variable life insurance policies",
+      "filings": 18,
+      "form": "N-6",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Notification of late filing",
+      "filings": 17,
+      "form": "NT 11-K",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 17,
+      "form": "S-3MEF",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 16,
+      "form": "424H/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 16,
+      "form": "F-10EF",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 16,
+      "form": "SC 14F1",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Registration Statement Under the Securities Act of 1933",
+      "filings": 16,
+      "form": "SF-3/A",
+      "topics": [
+        "Securities Act of 1933"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 15,
+      "form": "10-KT",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 15,
+      "form": "15F-12B",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 15,
+      "form": "S-3DPOS",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 15,
+      "form": "S-B",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Application for Registration of Security-based Swap Dealers and Major Security-based Swap Participants",
+      "filings": 15,
+      "form": "SBSE/A",
+      "topics": [
+        "Dodd-Frank Act of 2010",
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement for separate accounts organized as unit investment trusts that offer variable life insurance policies",
+      "filings": 14,
+      "form": "N-6/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 14,
+      "form": "NT-NCEN",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Annual Reports and Special Financial Reports",
+      "filings": 13,
+      "form": "1-K/A",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 13,
+      "form": "F-1MEF",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 13,
+      "form": "PREM14C",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration Statement Under the Securities Act of 1933",
+      "filings": 13,
+      "form": "SF-3",
+      "topics": [
+        "Securities Act of 1933"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 12,
+      "form": "20FR12B",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 12,
+      "form": "40FR12B/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Appointment of agent for service of process by foreign banks and foreign insurance companies",
+      "filings": 12,
+      "form": "F-N",
+      "topics": [
+        "Securities Act of 1933"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Instructions for the Form MA Series",
+      "filings": 12,
+      "form": "MA",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Municipal Advisors"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Registration Statement Under the Securities Act of 1933",
+      "filings": 12,
+      "form": "SF-1",
+      "topics": [
+        "Securities Act of 1933"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement pursuant to Section 12 or annual report pursuant to Section 13(a) or 15(d)",
+      "filings": 11,
+      "form": "40-F/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies",
+        "International"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 11,
+      "form": "ATS-N/OFA",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 11,
+      "form": "DEFA14C",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 11,
+      "form": "DOS",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Notification of withdrawal of election to be subject to Sections 55-65 of the Investment Company Act of 1940",
+      "filings": 11,
+      "form": "N-54C",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Notification of registration filed pursuant to Section 8(a) of Investment Company Act of 1940",
+      "filings": 11,
+      "form": "N-8A/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 11,
+      "form": "NRSRO-CE",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 10,
+      "form": "20FR12B/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 10,
+      "form": "ANNLRPT",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 10,
+      "form": "POS462C",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 10,
+      "form": "PREN14A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 10,
+      "form": "S-B/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Registration Statement Under the Securities Act of 1933",
+      "filings": 10,
+      "form": "SF-1/A",
+      "topics": [
+        "Securities Act of 1933"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Annual reports of employee stock purchase, savings and similar plans pursuant to Section 15(d)",
+      "filings": 9,
+      "form": "11-K/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 9,
+      "form": "ARS/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Current Report Pursuant to Regulation A",
+      "filings": 8,
+      "form": "1-U/A",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 8,
+      "form": "15-12G/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Registration of certain classes of securities pursuant to Section 12(b) or (g)",
+      "filings": 8,
+      "form": "8-A12G/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 8,
+      "form": "APP WD/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Notification of late filing",
+      "filings": 8,
+      "form": "NT 10-K/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 8,
+      "form": "SC14D1F/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 7,
+      "form": "40-6B",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 7,
+      "form": "C-TR-W",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Notice of intent to elect to be subject to Sections 55-65 of the Investment Company Act of 1940",
+      "filings": 7,
+      "form": "N-6F",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Application for registration or exemption from registration as a national securities exchange",
+      "filings": 6,
+      "form": "1",
+      "topics": [
+        "Self-Regulatory Organizations"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 6,
+      "form": "253G3",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 6,
+      "form": "8-K12G3",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 6,
+      "form": "DEFN14A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 6,
+      "form": "DEFR14C",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 6,
+      "form": "DOS/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 6,
+      "form": "POS 8C",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Specialized Disclosure Report",
+      "filings": 6,
+      "form": "SD/A",
+      "topics": [
+        "Securities Exchange Act of 1934",
+        "Public Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Notice of withdrawal from registration as transfer agent",
+      "filings": 6,
+      "form": "TA-W",
+      "topics": [
+        "Transfer Agents"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 5,
+      "form": "40-8B25",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 5,
+      "form": "AW WD",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 5,
+      "form": "RW WD",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 5,
+      "form": "S-3D",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 5,
+      "form": "SP 15D2",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 4,
+      "form": "6B NTC",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 4,
+      "form": "6B ORDR",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 4,
+      "form": "N-23C3A/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Notice of intent to elect to be subject to Sections 55-65 of the Investment Company Act of 1940",
+      "filings": 4,
+      "form": "N-6F/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 4,
+      "form": "NT-NCSR/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 4,
+      "form": "S-4MEF",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 4,
+      "form": "SC13E4F/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 4,
+      "form": "SC14D1F",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 3,
+      "form": "1-A-W/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Semiannual Report or Special Financial Report Pursuant to Regulation A",
+      "filings": 3,
+      "form": "1-SA/A",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Exit Report Under Regulation A",
+      "filings": 3,
+      "form": "1-Z/A",
+      "topics": [
+        "Securities Act of 1933",
+        "Small Businesses"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 3,
+      "form": "15F-12G",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 3,
+      "form": "40-8F-2/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 3,
+      "form": "ADV-H-T",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 3,
+      "form": "ATS-N-W",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 3,
+      "form": "C-AR-W",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 3,
+      "form": "C/A-W",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 3,
+      "form": "CFPORTAL-W",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 3,
+      "form": "DSTRBRPT/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Appointment of agent for service of process and undertaking",
+      "filings": 3,
+      "form": "F-X/A",
+      "topics": [
+        "Securities Act of 1933",
+        "International"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 3,
+      "form": "NTFNCSR",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 3,
+      "form": "S-4 POS",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Request for Withdrawal from Registration as a Security-based Swap Dealer or Major Security-based Swap Participant",
+      "filings": 3,
+      "form": "SBSE-W",
+      "topics": [
+        "Dodd-Frank Act of 2010",
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 2,
+      "form": "10-KT/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 2,
+      "form": "20FR12G/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Notification of the removal from listing and registration of matured, redeemed or retired securities",
+      "filings": 2,
+      "form": "25/A",
+      "topics": [
+        "Public Companies",
+        "Self-Regulatory Organizations"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 2,
+      "form": "40-17F1/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 2,
+      "form": "8-K12B/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 2,
+      "form": "ANNLRPT/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 2,
+      "form": "ATS-N-C",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 2,
+      "form": "F-3MEF",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 2,
+      "form": "N-18F1",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 2,
+      "form": "N-2 POSASR",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 2,
+      "form": "N-2MEF",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": "Notification of election to be subject to Sections 55-65 of the Investment Company Act of 1940",
+      "filings": 2,
+      "form": "N-54A/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 2,
+      "form": "NRSRO-CE/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 2,
+      "form": "NT-NCEN/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Application for Registration of Security-based Swap Dealers and Major Security-based Swap Participants that are Registered Broker-dealers",
+      "filings": 2,
+      "form": "SBSE-BD",
+      "topics": [
+        "Dodd-Frank Act of 2010",
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Application for Registration of Security-based Swap Dealers and Major Security-based Swap Participants that are Registered Broker-dealers",
+      "filings": 2,
+      "form": "SBSE-BD/A",
+      "topics": [
+        "Dodd-Frank Act of 2010",
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": "Certifications for Registration of Security-based Swap Dealers and Major Security-based Swap Participants",
+      "filings": 2,
+      "form": "SBSE-C",
+      "topics": [
+        "Dodd-Frank Act of 2010",
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 2,
+      "form": "SC 14N",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 2,
+      "form": "SC13E4F",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 2,
+      "form": "SC14D9F/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "1-Z-W",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "15F-15D",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "17AD-27",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "20FR12G",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 1,
+      "form": "40-17F2/A",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 1,
+      "form": "40-33/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "40-8F-2",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "40FR12G",
+      "topics": []
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 1,
+      "form": "40FR12G/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "8-K15D5",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "NMS Stock Alternative Trading Systems",
+      "filings": 1,
+      "form": "ATS-N",
+      "topics": [
+        "Alternative Trading Systems"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "CANCELLATION-MA",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "DOSLTR",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement for securities of certain Canadian issuers to be issued in exchange offers or a business combination",
+      "filings": 1,
+      "form": "F-80",
+      "topics": [
+        "Securities Act of 1933",
+        "International"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": null,
+      "filings": 1,
+      "form": "N-23C-2/A",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "N-23C3B",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Registration statement of unit investment trusts which are currently issuing securities",
+      "filings": 1,
+      "form": "N-8B-2",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": true,
+      "description": "Registration statement of unit investment trusts which are currently issuing securities",
+      "filings": 1,
+      "form": "N-8B-2/A",
+      "topics": [
+        "Investment Company Act of 1940",
+        "Investment Companies"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "POS462B",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "S-11MEF",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": "Application for Registration of Security-based Swap Dealers and Major Security-based Swap Participants",
+      "filings": 1,
+      "form": "SBSE",
+      "topics": [
+        "Dodd-Frank Act of 2010",
+        "Securities Exchange Act of 1934"
+      ]
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "SC14D9F",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "SEC ACTION",
+      "topics": []
+    },
+    {
+      "amendment": false,
+      "description": null,
+      "filings": 1,
+      "form": "STOP ORDER",
+      "topics": []
+    }
+  ],
+  "generated_on": "2026-11-01",
+  "quarters": [
+    "2025Q4",
+    "2026Q1",
+    "2026Q2",
+    "2026Q3"
+  ],
+  "sources": [
+    "https://www.sec.gov/Archives/edgar/full-index/{year}/QTR{quarter}/form.gz",
+    "https://www.sec.gov/forms"
+  ]
+}

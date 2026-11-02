@@ -1,0 +1,17 @@
+{
+  "fields": ["cik", "name", "ticker", "exchange"],
+  "data": [
+    [320193, "Apple Inc.", "AAPL", "Nasdaq"],
+    [1045810, "NVIDIA CORP", "NVDA", "Nasdaq"],
+    [1652044, "Alphabet Inc.", "GOOGL", "Nasdaq"],
+    [1652044, "Alphabet Inc.", "GOOG", "Nasdaq"],
+    [789019, "MICROSOFT CORP", "MSFT", "Nasdaq"],
+    [1234, "Tiny Co", "TINY", "OTC"],
+    [1000001, "Dual Listed Holdings Inc.", "DUAL", "NYSE"],
+    [1000002, "Dual Energy Trust", "DUAL", "CBOE"],
+    [1000003, "Both Boards Corp", "BOTH", "NYSE"],
+    [1000003, "Both Boards Corp", "BOTH", "Nasdaq"],
+    [1000004, "No Board Ltd", "NOBD", null],
+    [1067983, "BERKSHIRE HATHAWAY INC", "BRK-B", "NYSE"]
+  ]
+}

@@ -1,0 +1,64 @@
+[project]
+name = "mcp-server-edgar"
+version = "0.1.0"
+description = "Latest SEC filing and calendar-year filing history for a stock ticker, with official EDGAR links."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "Sudipto Haldar", email = "sudiptokanti@yahoo.com" }]
+keywords = ["mcp", "sec", "edgar", "filings", "model-context-protocol"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Financial and Insurance Industry",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Office/Business :: Financial",
+]
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=2.3.0",
+    "pydantic>=2.14.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/SudiptoHaldar/mcp_server_edgar"
+Repository = "https://github.com/SudiptoHaldar/mcp_server_edgar"
+Issues = "https://github.com/SudiptoHaldar/mcp_server_edgar/issues"
+
+[project.scripts]
+mcp-server-edgar = "mcp_edgar.server:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "mcp_edgar"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "T10", "T20"]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/*" = ["T201"]  # dev tooling prints its report; src/ stays print-free (gotchas #1)
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not live'"
+markers = ["live: hits the real SEC API; skipped by default and on network failure"]
