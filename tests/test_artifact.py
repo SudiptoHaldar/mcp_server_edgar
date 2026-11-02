@@ -5,9 +5,11 @@ fixtures are the real listings recorded from the v3.01 build on 2026-11-01. Noth
 spawns ``uvx`` or touches the network.
 """
 
+import hashlib
 import importlib.util
 import re
 import sys
+import tomllib
 from pathlib import Path
 from types import ModuleType
 
@@ -17,6 +19,8 @@ import mcp_edgar
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "check_artifact.py"
+PYPROJECT_TEXT = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+DESCRIPTION = tomllib.loads(PYPROJECT_TEXT)["project"]["description"]
 VERSION = "0.1.0"
 STEM = f"mcp_server_edgar-{VERSION}"
 DI = f"{STEM}.dist-info"
@@ -90,6 +94,40 @@ SMOKE_OK = {
     "forms": {"status": "ok", "total_count": 386},
     "seconds": 2.9,
 }
+WHEEL_FILE = f"{STEM}-py3-none-any.whl"
+SDIST_FILE = f"{STEM}.tar.gz"
+WHEEL_SHA = "a" * 64
+SDIST_SHA = "b" * 64
+LOCAL_DIGESTS = {WHEEL_FILE: WHEEL_SHA, SDIST_FILE: SDIST_SHA}
+INDEX_OK = {  # the shape of https://pypi.org/pypi/<name>/<version>/json (req_005 v5.01)
+    "info": {
+        "name": "mcp-server-edgar",
+        "version": VERSION,
+        "summary": DESCRIPTION,
+        "requires_python": ">=3.11",
+        "project_urls": {
+            "Homepage": PUBLIC_REPO,
+            "Repository": PUBLIC_REPO,
+            "Issues": PUBLIC_REPO + "/issues",
+        },
+    },
+    "urls": [
+        {
+            "filename": WHEEL_FILE,
+            "packagetype": "bdist_wheel",
+            "digests": {"sha256": WHEEL_SHA},
+            "yanked": False,
+            "upload_time_iso_8601": "2026-11-02T10:00:00.000000Z",
+        },
+        {
+            "filename": SDIST_FILE,
+            "packagetype": "sdist",
+            "digests": {"sha256": SDIST_SHA},
+            "yanked": False,
+            "upload_time_iso_8601": "2026-11-02T10:00:01.000000Z",
+        },
+    ],
+}
 
 
 def load() -> ModuleType:
@@ -114,13 +152,17 @@ def metadata(header: list[str] = HEADER, body: str = BODY) -> tuple[dict, str]:
 def test_script_has_no_future_import_and_is_small() -> None:
     source = SCRIPT.read_text(encoding="utf-8")
     assert re.search(r"^from __future__ import", source, re.MULTILINE) is None
-    assert len(source.splitlines()) < 450  # budget revised from 320 at implementation
+    assert len(source.splitlines()) < 500  # budget revised from 450 for --from-pypi (v5.01)
 
 
 def test_expected_version_reads_pyproject_and_matches_package() -> None:
     assert mod.expected_version('[project]\nname = "x"\nversion = "9.8.7"\n') == "9.8.7"
-    pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
-    assert mod.expected_version(pyproject) == mcp_edgar.__version__
+    assert mod.expected_version(PYPROJECT_TEXT) == mcp_edgar.__version__
+
+
+def test_expected_description_reads_pyproject() -> None:
+    assert mod.expected_description('[project]\nname = "x"\ndescription = "Hi."\n') == "Hi."
+    assert mod.expected_description(PYPROJECT_TEXT) == DESCRIPTION and len(DESCRIPTION) < 100
 
 
 def test_stem_and_dist_info() -> None:
@@ -280,8 +322,8 @@ def test_twine_passed_needs_two_passed_lines_and_exit_zero() -> None:
 
 
 def test_smoke_command_launches_the_wheel_in_isolation() -> None:
-    wheel = Path("dist") / f"{STEM}-py3-none-any.whl"
-    assert mod.smoke_command(wheel, None) == [
+    wheel = Path("dist") / WHEEL_FILE
+    assert mod.smoke_command(wheel, None, VERSION) == [
         "uvx",
         "--isolated",
         "--refresh",
@@ -289,8 +331,15 @@ def test_smoke_command_launches_the_wheel_in_isolation() -> None:
         str(wheel),
         "mcp-server-edgar",
     ]
-    with_python = mod.smoke_command(wheel, "3.11")
+    with_python = mod.smoke_command(wheel, "3.11", VERSION)
     assert with_python[-3:] == ["--python", "3.11", "mcp-server-edgar"]
+
+
+def test_smoke_command_from_the_index_pins_the_version() -> None:
+    pinned = f"mcp-server-edgar@{VERSION}"
+    assert mod.smoke_command(None, None, VERSION) == ["uvx", "--isolated", "--refresh", pinned]
+    assert mod.smoke_command(None, "3.11", VERSION)[-3:] == ["--python", "3.11", pinned]
+    assert "--from" not in mod.smoke_command(None, "3.11", VERSION)
 
 
 def test_judge_smoke_passes_on_the_recorded_observation() -> None:
@@ -321,6 +370,82 @@ def test_judge_smoke_tolerates_a_bare_failure_dict() -> None:
     assert not mod.judge_smoke({}, VERSION)[0]
 
 
+# --- row 10 (--from-pypi): the index record -------------------------------------------------
+
+
+def with_info(**changes: object) -> dict:
+    return {**INDEX_OK, "info": {**INDEX_OK["info"], **changes}}
+
+
+def with_urls(urls: list[dict]) -> dict:
+    return {**INDEX_OK, "urls": urls}
+
+
+BAD_DIGEST_WHEEL = {**INDEX_OK["urls"][0], "digests": {"sha256": "c" * 64}}
+
+
+def test_sha256_of_matches_hashlib(tmp_path: Path) -> None:
+    path = tmp_path / WHEEL_FILE
+    path.write_bytes(b"wheel bytes")
+    assert mod.sha256_of(path) == hashlib.sha256(b"wheel bytes").hexdigest()
+
+
+def test_index_release_passes_on_the_recorded_payload() -> None:
+    ok, observed = mod.check_index_release(INDEX_OK, LOCAL_DIGESTS, VERSION, DESCRIPTION)
+    assert ok, observed
+    assert "files=2" in observed and "digests_match=True" in observed and "yanked=0" in observed
+    assert "uploaded=2026-11-02T10:00:01" in observed
+
+
+@pytest.mark.parametrize(
+    ("payload", "local"),
+    [
+        (with_info(version="0.0.9"), LOCAL_DIGESTS),
+        (with_info(name="other-package"), LOCAL_DIGESTS),
+        (with_info(summary=DESCRIPTION + "!"), LOCAL_DIGESTS),
+        (with_info(requires_python=">=3.10"), LOCAL_DIGESTS),
+        (
+            with_info(
+                project_urls={
+                    **INDEX_OK["info"]["project_urls"],
+                    "Homepage": PUBLIC_REPO.replace("SudiptoHaldar", "Sagentic-Systems"),
+                }
+            ),
+            LOCAL_DIGESTS,
+        ),
+        (
+            with_urls([*INDEX_OK["urls"], {**INDEX_OK["urls"][0], "filename": "extra.whl"}]),
+            LOCAL_DIGESTS,
+        ),
+        (with_urls(INDEX_OK["urls"][:1]), LOCAL_DIGESTS),
+        (with_urls([BAD_DIGEST_WHEEL, INDEX_OK["urls"][1]]), LOCAL_DIGESTS),
+        (with_urls([{**INDEX_OK["urls"][0], "yanked": True}, INDEX_OK["urls"][1]]), LOCAL_DIGESTS),
+        (INDEX_OK, {"mcp_server_edgar-0.1.0-py2-none-any.whl": WHEEL_SHA, SDIST_FILE: SDIST_SHA}),
+    ],
+)
+def test_index_release_fails_on_each_deviation(payload: dict, local: dict[str, str]) -> None:
+    ok, observed = mod.check_index_release(payload, local, VERSION, DESCRIPTION)
+    assert not ok, observed
+
+
+def test_index_release_accepts_the_underscore_spelling_and_an_empty_payload() -> None:
+    underscore = with_info(name="mcp_server_edgar")
+    assert mod.check_index_release(underscore, LOCAL_DIGESTS, VERSION, DESCRIPTION)[0]
+    ok, observed = mod.check_index_release({}, LOCAL_DIGESTS, VERSION, DESCRIPTION)
+    assert not ok and "files=0" in observed and "digests_match=False" in observed
+
+
+def test_row_titles_default_and_from_pypi() -> None:
+    default = mod.row_titles(False, ["3.11"])
+    assert len(default) == 11 and default[0] == "dist/ contents"
+    assert default[-2:] == ["smoke (current interpreter)", "smoke (--python 3.11)"]
+    index = mod.row_titles(True, ["3.11"])
+    assert len(index) == 12 and index[:9] == default[:9] and index[9] == "PyPI release record"
+    assert index[-2] == "smoke from PyPI (current interpreter)"
+    assert index[-1] == "smoke from PyPI (--python 3.11)"
+    assert len(mod.row_titles(True, ["3.12", "3.13"])) == 13
+
+
 # --- CLI plumbing --------------------------------------------------------------------------
 
 
@@ -333,6 +458,18 @@ def test_parse_args_defaults() -> None:
 def test_parse_args_overrides() -> None:
     args = mod.parse_args(["--no-smoke", "--no-twine", "--python", "3.12", "--python", "3.13"])
     assert args.pythons == ["3.12", "3.13"] and args.no_twine and args.no_smoke
+
+
+def test_parse_args_from_pypi_and_its_build_conflict() -> None:
+    assert not mod.parse_args([]).from_pypi
+    assert mod.parse_args(["--from-pypi"]).from_pypi
+    with pytest.raises(SystemExit):
+        mod.parse_args(["--from-pypi", "--build"])
+
+
+def test_main_from_pypi_still_needs_dist(tmp_path: Path, capsys: pytest.CaptureFixture) -> None:
+    assert mod.main(["--from-pypi", "--dist", str(tmp_path / "nowhere"), "--no-smoke"]) == 2
+    assert "missing or stale" in capsys.readouterr().err
 
 
 def test_main_exits_two_on_a_missing_dist(tmp_path: Path, capsys: pytest.CaptureFixture) -> None:

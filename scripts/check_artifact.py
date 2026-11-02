@@ -1,25 +1,27 @@
 """Check the built artifact in ``dist/`` and smoke-test it from a clean environment (req_003 v3.02).
 
     uv run python scripts/check_artifact.py [--build] [--dist PATH] [--python 3.11 ...]
-                                            [--no-twine] [--no-smoke]
+                                            [--no-twine] [--no-smoke] [--from-pypi]
 
-Eleven rows: dist/ holds exactly one wheel and one sdist; the wheel carries the package, the
-form-type catalogue, the licence and the entry point (row 2) and nothing from this repository's
-process (row 3); METADATA (rows 4-5) and PKG-INFO (row 8) agree with ``pyproject.toml`` and the
-long description carries the Registry marker; the sdist is src + four files (row 7); ``twine
-check`` passes (row 9); ``uvx --isolated --refresh --from <wheel> mcp-server-edgar`` launched
-from an empty temporary directory answers ``initialize``, lists 3/1/4/3 primitives and serves
-``list_form_types`` from the installed wheel, on the current interpreter and on Python 3.11
-(rows 10-11).
-The Markdown table it prints is the M4 record (as ``inspector_checklist.py`` is for M3/M3b).
+Default mode, eleven rows (the M4 record): one wheel + one sdist in dist/ (row 1); wheel entries
+and hygiene (rows 2-3); METADATA header and long description with the Registry marker (rows 4-5);
+entry point (row 6); sdist entries (row 7); PKG-INFO (row 8); ``twine check`` (row 9); ``uvx
+--isolated --refresh --from <wheel> mcp-server-edgar`` from an empty temporary directory answers
+``initialize``, lists 3/1/4/3 primitives and serves ``list_form_types`` from the installed wheel,
+on the current interpreter and on Python 3.11 (rows 10-11).
 
-Exit codes: 0 all rows pass, 1 a row failed, 2 ``dist/`` missing or stale (not exactly one wheel
-and one sdist), ``uv build`` failed, or ``uvx`` not found. No ``from __future__ import
-annotations`` here: the file is path-loaded by tests (gotchas #18).
+``--from-pypi`` (req_005 v5.01), twelve rows (the M6 record): rows 1-9 over the uploaded files;
+row 10 fetches the PyPI JSON release record and requires its two files to equal dist/ by name and
+SHA-256 (plus version, summary, requires-python, public URLs, not yanked); rows 11-12 smoke
+``uvx --isolated --refresh mcp-server-edgar@<version>`` from the index. Refuses ``--build``.
+
+Exit codes: 0 all rows pass, 1 a row failed, 2 dist/ missing or stale, ``uv build`` failed, or
+``uvx`` not found. No ``from __future__ import annotations``: path-loaded by tests (gotchas #18).
 """
 
 import argparse
 import asyncio
+import hashlib
 import shutil
 import subprocess
 import sys
@@ -33,6 +35,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+import httpx
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
@@ -44,26 +47,16 @@ MARKER = "<!-- mcp-name: io.github.SudiptoHaldar/mcp-server-edgar -->"
 PUBLIC_REPO = "https://github.com/SudiptoHaldar/mcp_server_edgar"
 SERVER_NAME = "SEC EDGAR Filings"
 FORBIDDEN = (
-    "tests/",
-    "scripts/",
-    "reqspecs/",
-    ".claude/",
-    "fixtures",
-    "__pycache__/",
-    ".pyc",
-    ".venv/",
-    "release_number.md",
-    ".code-workspace",
-    "uv.lock",
-    ".github/",
-    "C:",
-    "\\",
+    *("tests/", "scripts/", "reqspecs/", ".claude/", "fixtures", "__pycache__/", ".pyc"),
+    *(".venv/", "release_number.md", ".code-workspace", "uv.lock", ".github/", "C:", "\\"),
 )
 LEAKS = ("Sagentic-Systems", "C:\\", "reqspecs", ".claude")
 SDIST_TOP = frozenset({"LICENSE", "PKG-INFO", "README.md", "pyproject.toml", "src"})
 MIN_FORM_TYPES = 250
 SMOKE_TIMEOUT = 180
 TWINE_TIMEOUT = 300
+INDEX_JSON = "https://pypi.org/pypi/{name}/{version}/json"
+INDEX_TIMEOUT = 30
 DEFAULT_PYTHONS = ["3.11"]
 
 Verdict = tuple[bool, str]
@@ -85,12 +78,20 @@ def expected_version(pyproject_text: str) -> str:
     return str(tomllib.loads(pyproject_text)["project"]["version"])
 
 
+def expected_description(pyproject_text: str) -> str:
+    return str(tomllib.loads(pyproject_text)["project"]["description"])
+
+
 def stem(version: str) -> str:
     return f"mcp_server_edgar-{version}"
 
 
 def dist_info(version: str) -> str:
     return f"{stem(version)}.dist-info"
+
+
+def sha256_of(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def check_dist_files(names: list[str], version: str) -> Verdict:
@@ -204,8 +205,40 @@ def twine_passed(stdout: str, returncode: int) -> Verdict:
     return returncode == 0 and passed == 2, f"rc={returncode}; passed_lines={passed}"
 
 
-def smoke_command(wheel: Path, python: str | None) -> list[str]:
+def check_index_release(
+    payload: dict, local_digests: dict[str, str], version: str, description: str
+) -> Verdict:
+    """Row 10: the release record on pypi.org names exactly the local files, byte for byte."""
+    info = payload.get("info") or {}
+    urls = payload.get("urls") or []
+    remote = {u.get("filename"): (u.get("digests") or {}).get("sha256") for u in urls}
+    types = sorted(str(u.get("packagetype", "")) for u in urls)
+    yanked = [u.get("filename") for u in urls if u.get("yanked")]
+    project_urls = list((info.get("project_urls") or {}).values())
+    ok = (
+        info.get("version") == version
+        and str(info.get("name", "")).lower().replace("_", "-") == DIST_NAME
+        and info.get("summary") == description
+        and info.get("requires_python") == ">=3.11"
+        and len(project_urls) == 3
+        and all(PUBLIC_REPO in url for url in project_urls)
+        and remote == local_digests
+        and types == ["bdist_wheel", "sdist"]
+        and not yanked
+    )
+    uploaded = max((str(u.get("upload_time_iso_8601", "")) for u in urls), default="")
+    return ok, (
+        f"index={info.get('name')} {info.get('version')}; files={len(urls)}; "
+        f"digests_match={remote == local_digests}; types={types}; yanked={len(yanked)}; "
+        f"uploaded={uploaded}"
+    )
+
+
+def smoke_command(wheel: Path | None, python: str | None, version: str) -> list[str]:
+    """``--from <wheel>`` for the local artifact; ``name@version`` resolves from the index."""
     python_args = ["--python", python] if python else []
+    if wheel is None:
+        return ["uvx", "--isolated", "--refresh", *python_args, f"{DIST_NAME}@{version}"]
     return ["uvx", "--isolated", "--refresh", "--from", str(wheel), *python_args, EXECUTABLE]
 
 
@@ -229,6 +262,19 @@ def judge_smoke(observed: dict[str, Any], version: str) -> Verdict:
     )
 
 
+def row_titles(from_pypi: bool, pythons: list[str]) -> list[str]:
+    """The row sequence of both modes: 11 rows by default, 12 with ``--from-pypi``."""
+    base = [
+        *("dist/ contents", "wheel required entries", "wheel hygiene", "METADATA header"),
+        *("METADATA long description", "entry_points.txt", "sdist entries", "PKG-INFO"),
+        "uvx twine check",
+    ]
+    prefix = "smoke from PyPI" if from_pypi else "smoke"
+    extra = ["PyPI release record"] if from_pypi else []
+    smokes = [f"{prefix} (current interpreter)", *(f"{prefix} (--python {p})" for p in pythons)]
+    return [*base, *extra, *smokes]
+
+
 # --- subprocess-backed rows ---------------------------------------------------------------
 
 
@@ -248,11 +294,25 @@ def run_twine(wheel: Path, sdist: Path) -> Verdict:
     return passed, observed + tail
 
 
-async def smoke(wheel: Path, python: str | None) -> dict[str, Any]:
-    """Launch the wheel with uvx from an empty directory and observe the server over stdio."""
+def run_index_row(version: str, local_digests: dict[str, str], description: str) -> Verdict:
+    url = INDEX_JSON.format(name=DIST_NAME, version=version)
+    try:
+        headers = {"Accept": "application/json"}
+        response = httpx.get(url, timeout=INDEX_TIMEOUT, follow_redirects=True, headers=headers)
+    except httpx.HTTPError as exc:
+        return False, f"index fetch failed: {type(exc).__name__}: {exc}"
+    if response.status_code == 404:
+        return False, "not on the index yet (404): PyPI propagation takes up to ~1 min, re-run"
+    if response.status_code != 200:
+        return False, f"index answered HTTP {response.status_code}"
+    return check_index_release(response.json(), local_digests, version, description)
+
+
+async def smoke(wheel: Path | None, python: str | None, version: str) -> dict[str, Any]:
+    """Launch the wheel (or the index release) with uvx from an empty directory and observe it."""
     started = time.perf_counter()
     with tempfile.TemporaryDirectory() as tmp:
-        argv = smoke_command(wheel.resolve(), python)
+        argv = smoke_command(None if wheel is None else wheel.resolve(), python, version)
         params = StdioServerParameters(
             command=argv[0], args=argv[1:], cwd=tmp, env={"MCP_EDGAR_LOG_LEVEL": "WARNING"}
         )
@@ -277,9 +337,11 @@ async def smoke(wheel: Path, python: str | None) -> dict[str, Any]:
     }
 
 
-def run_smoke(wheel: Path, python: str | None, version: str) -> Verdict:
+def run_smoke(wheel: Path | None, python: str | None, version: str) -> Verdict:
     try:
-        observed = asyncio.run(asyncio.wait_for(smoke(wheel, python), timeout=SMOKE_TIMEOUT))
+        observed = asyncio.run(
+            asyncio.wait_for(smoke(wheel, python, version), timeout=SMOKE_TIMEOUT)
+        )
     except Exception as exc:  # the SDK raises ExceptionGroup; its text names the cause
         return False, f"smoke failed: {type(exc).__name__}: {exc}"
     return judge_smoke(observed, version)
@@ -297,7 +359,14 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument("--no-twine", action="store_true", help="skip the twine check row")
     parser.add_argument("--no-smoke", action="store_true", help="skip the uvx smoke rows")
+    parser.add_argument(
+        "--from-pypi",
+        action="store_true",
+        help="row 10 compares dist/ to pypi.org; the smoke rows install from the index",
+    )
     args = parser.parse_args(argv)
+    if args.from_pypi and args.build:
+        parser.error("--from-pypi judges the files that were uploaded; do not rebuild them")
     if args.pythons is None:
         args.pythons = list(DEFAULT_PYTHONS)
     return args
@@ -316,7 +385,9 @@ def read_tar_member(sdist: Path, name: str) -> str:
         return member.read().decode("utf-8") if member else ""
 
 
-def build_rows(args: argparse.Namespace, version: str, dist_verdict: Verdict) -> list[Row]:
+def build_rows(
+    args: argparse.Namespace, version: str, description: str, dist_verdict: Verdict
+) -> list[Row]:
     wheel = args.dist / f"{stem(version)}-py3-none-any.whl"
     sdist = args.dist / f"{stem(version)}.tar.gz"
     di = dist_info(version)
@@ -328,75 +399,63 @@ def build_rows(args: argparse.Namespace, version: str, dist_verdict: Verdict) ->
     fields, body = parse_metadata(read_zip_member(wheel, f"{di}/METADATA"))
     entry_points = read_zip_member(wheel, f"{di}/entry_points.txt")
     pkg_fields, _ = parse_metadata(read_tar_member(sdist, f"{stem(version)}/PKG-INFO"))
-    smoke_expectation = (
-        f"{SERVER_NAME} {version}; counts 3/1/4/3; list_form_types ok >= {MIN_FORM_TYPES}"
-    )
-    rows = [
-        Row(1, "dist/ contents", "one wheel + one sdist, versioned stems", lambda: dist_verdict),
-        Row(
-            2,
-            "wheel required entries",
+    judges: list[tuple[str, Callable[[], Verdict] | None]] = [
+        ("one wheel + one sdist, versioned stems", lambda: dist_verdict),
+        (
             "package, server, catalogue, licences/LICENSE, METADATA, entry_points, WHEEL, RECORD",
             lambda: check_wheel_required(wheel_names, version),
         ),
-        Row(
-            3,
-            "wheel hygiene",
+        (
             "two roots only; nothing forbidden; module set == checkout",
             lambda: check_wheel_hygiene(wheel_names, version, modules),
         ),
-        Row(
-            4,
-            "METADATA header",
+        (
             f"Name/Version {version}/MIT/LICENSE/>=3.11/3 public URLs/markdown",
             lambda: check_metadata_header(fields, version),
         ),
-        Row(
-            5,
-            "METADATA long description",
-            "marker once on its own line; no private strings",
-            lambda: check_long_description(body),
-        ),
-        Row(
-            6,
-            "entry_points.txt",
+        ("marker once on its own line; no private strings", lambda: check_long_description(body)),
+        (
             f"[console_scripts] {EXECUTABLE} = {PACKAGE}.server:main",
             lambda: check_entry_points(entry_points),
         ),
-        Row(
-            7,
-            "sdist entries",
+        (
             "top level LICENSE/PKG-INFO/README.md/pyproject.toml/src; catalogue; module parity",
             lambda: check_sdist_entries(sdist_names, version, modules),
         ),
-        Row(
-            8,
-            "PKG-INFO",
+        (
             f"Name {DIST_NAME}; Version {version}; License-File LICENSE",
             lambda: check_pkg_info(pkg_fields, version),
         ),
-        Row(
-            9,
-            "uvx twine check",
-            "PASSED for wheel and sdist",
-            None if args.no_twine else lambda: run_twine(wheel, sdist),
-        ),
-        Row(
-            10,
-            "smoke (current interpreter)",
-            smoke_expectation,
-            None if args.no_smoke else lambda: run_smoke(wheel, None, version),
-        ),
+        ("PASSED for wheel and sdist", None if args.no_twine else lambda: run_twine(wheel, sdist)),
     ]
-    for python in args.pythons:
-        judge = None if args.no_smoke else (lambda p=python: run_smoke(wheel, p, version))
-        rows.append(Row(len(rows) + 1, f"smoke (--python {python})", smoke_expectation, judge))
-    return rows
+    if args.from_pypi:
+        digests = {wheel.name: sha256_of(wheel), sdist.name: sha256_of(sdist)}
+        judges.append(
+            (
+                "two files on pypi.org == dist/ by name and sha256; version/summary/>=3.11/"
+                "3 public URLs; not yanked",
+                lambda: run_index_row(version, digests, description),
+            )
+        )
+    launch = None if args.from_pypi else wheel
+    smoke_expectation = (
+        f"{SERVER_NAME} {version}; counts 3/1/4/3; list_form_types ok >= {MIN_FORM_TYPES}"
+    )
+    for python in [None, *args.pythons]:
+        judge = None if args.no_smoke else (lambda p=python: run_smoke(launch, p, version))
+        judges.append((smoke_expectation, judge))
+    titles = row_titles(args.from_pypi, args.pythons)
+    return [
+        Row(number, title, expectation, judge)
+        for number, (title, (expectation, judge)) in enumerate(zip(titles, judges, strict=True), 1)
+    ]
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
-    version = expected_version((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+    pyproject_text = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+    version = expected_version(pyproject_text)
+    description = expected_description(pyproject_text)
     if args.build:
         shutil.rmtree(args.dist, ignore_errors=True)
         built = subprocess.run(["uv", "build", "--out-dir", str(args.dist)], check=False)
@@ -411,7 +470,7 @@ def main(argv: list[str] | None = None) -> int:
     if not (args.no_twine and args.no_smoke) and shutil.which("uvx") is None:
         print("uvx not found: install uv (https://docs.astral.sh/uv/)", file=sys.stderr)
         return 2
-    rows = build_rows(args, version, dist_verdict)
+    rows = build_rows(args, version, description, dist_verdict)
     lines = ["| # | Check | Expectation | Observed | Result |", "|---|---|---|---|---|"]
     passes = fails = skips = 0
     for row in rows:
@@ -428,7 +487,7 @@ def main(argv: list[str] | None = None) -> int:
     suffix = f" ({skips} skipped)" if skips else ""
     print(f"\n{'PASS' if fails == 0 else 'FAIL'} {passes}/{len(rows)}{suffix}")
     if skips:
-        print(f"not an M4 record: {skips} rows skipped")
+        print(f"not an {'M6' if args.from_pypi else 'M4'} record: {skips} rows skipped")
     return 0 if fails == 0 else 1
 
 

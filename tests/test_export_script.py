@@ -30,6 +30,7 @@ REQUIRED_IN_EXPORT = [
     "LICENSE",
     "README.md",
     "pyproject.toml",
+    "server.json",
     "uv.lock",
     ".gitignore",
     ".python-version",

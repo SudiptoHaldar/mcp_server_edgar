@@ -1,0 +1,32 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.SudiptoHaldar/mcp-server-edgar",
+  "title": "SEC EDGAR Filings",
+  "description": "Latest SEC filing and calendar-year filing history for a stock ticker, with official EDGAR links.",
+  "repository": {
+    "url": "https://github.com/SudiptoHaldar/mcp_server_edgar",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "mcp-server-edgar",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "MCP_EDGAR_USER_AGENT",
+          "description": "SEC fair-access identification: your product name and contact e-mail, e.g. acme-research/1.0 (ops@acme.example). Optional; the default names the maintainer.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}
