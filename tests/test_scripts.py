@@ -69,6 +69,51 @@ def test_runner_imports_the_rows_from_the_checks_module() -> None:
     assert runner.command("npx", read_row)[-4:] == expected
 
 
+def test_default_launcher_runs_this_source_tree() -> None:
+    runner = load_runner()
+    launch = runner.launcher(False)
+    assert launch == ["uv", "run", "--directory", str(SCRIPTS.parent), "mcp-server-edgar"]
+    row = sys.modules["inspector_checks"].ROWS[0]
+    assert runner.command("npx", row) == runner.command("npx", row, launch)
+    assert runner.command("npx", row)[:4] == ["npx", "-y", runner.INSPECTOR, "--cli"]
+
+
+def test_pypi_launcher_pins_the_declared_version() -> None:
+    import tomllib
+
+    import mcp_edgar
+
+    runner = load_runner()
+    pyproject = tomllib.loads((SCRIPTS.parent / "pyproject.toml").read_text(encoding="utf-8"))
+    launch = runner.launcher(True)
+    assert launch == ["uvx", f"mcp-server-edgar@{mcp_edgar.__version__}"]
+    assert launch[1].endswith("@" + pyproject["project"]["version"])
+    assert "latest" not in launch[1]
+
+
+def test_command_with_the_pypi_launcher_keeps_the_row_tail() -> None:
+    runner = load_runner()
+    checks = sys.modules["inspector_checks"]
+    row = next(r for r in checks.ROWS if r.method == "tools/call")
+    default = runner.command("npx", row)
+    pypi = runner.command("npx", row, runner.launcher(True))
+    assert pypi[:4] == default[:4] == ["npx", "-y", runner.INSPECTOR, "--cli"]
+    assert pypi[4] == "uvx" and default[4] == "uv"
+    assert pypi[6:] == default[9:]  # everything after the launcher is identical
+
+
+def test_main_exits_2_without_npx_before_any_launch(monkeypatch) -> None:
+    runner = load_runner()
+    monkeypatch.setattr(runner.shutil, "which", lambda name: None)
+
+    def explode(*args, **kwargs):  # noqa: ANN002, ANN003
+        raise AssertionError("no subprocess may start without npx")
+
+    monkeypatch.setattr(runner.subprocess, "run", explode)
+    assert runner.main(["--from-pypi"]) == 2
+    assert runner.main([]) == 2
+
+
 def test_rows_cover_all_tools_resources_prompts_and_the_sdk_error_path() -> None:
     module = load_module()
     tool_rows = {row.tool for row in module.ROWS if row.method == "tools/call"}

@@ -2,6 +2,8 @@
 
 <!-- mcp-name: io.github.SudiptoHaldar/mcp-server-edgar -->
 
+[![CI](https://github.com/SudiptoHaldar/mcp_server_edgar/actions/workflows/ci.yml/badge.svg)](https://github.com/SudiptoHaldar/mcp_server_edgar/actions/workflows/ci.yml) [![PyPI](https://img.shields.io/pypi/v/mcp-server-edgar)](https://pypi.org/project/mcp-server-edgar/) [![MCP Registry](https://img.shields.io/badge/MCP_Registry-io.github.SudiptoHaldar%2Fmcp--server--edgar-blue)](https://registry.modelcontextprotocol.io/?q=io.github.SudiptoHaldar%2Fmcp-server-edgar)
+
 A read-only [Model Context Protocol](https://modelcontextprotocol.io/) server, over stdio, that
 takes a stock ticker, resolves it to the SEC's Central Index Key (CIK), and returns filing
 metadata with official EDGAR links. It exposes three tools, five resources and three prompts.
@@ -9,7 +11,9 @@ No API key is needed: SEC EDGAR is public, and the server only identifies itself
 descriptive `User-Agent`. The server never reads, downloads or summarises filing contents; it
 tells you which filings exist and where they are on sec.gov.
 
-Published on PyPI as `mcp-server-edgar`; Registry identity `io.github.SudiptoHaldar/mcp-server-edgar`.
+Published on PyPI as [`mcp-server-edgar`](https://pypi.org/project/mcp-server-edgar/) and listed
+on the [Official MCP Registry](https://registry.modelcontextprotocol.io/?q=io.github.SudiptoHaldar%2Fmcp-server-edgar)
+as `io.github.SudiptoHaldar/mcp-server-edgar`.
 
 ## Install and run
 

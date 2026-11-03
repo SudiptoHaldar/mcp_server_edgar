@@ -12,7 +12,7 @@ import re
 import tomllib
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse
 
 import pytest
 
@@ -28,8 +28,13 @@ PROJECT: dict[str, Any] = tomllib.loads((ROOT / "pyproject.toml").read_text(enco
 ]
 
 MARKER = "<!-- mcp-name: io.github.SudiptoHaldar/mcp-server-edgar -->"
+MARKER_NAME = MARKER.removeprefix("<!-- mcp-name: ").removesuffix(" -->")
 PUBLIC_REPO = "https://github.com/SudiptoHaldar/mcp_server_edgar"
+PYPI_PROJECT = "https://pypi.org/project/" + PROJECT["name"] + "/"
+REGISTRY_SEARCH = "https://registry.modelcontextprotocol.io/?q=" + quote(MARKER_NAME, safe="")
+SHIELDS = "https://img.shields.io/"
 URL_RE = re.compile(r"https?://[^\s)\]>\"'`]+")
+BADGE_RE = re.compile(r"\[!\[([^\]]+)\]\(([^)]+)\)\]\(([^)]+)\)")
 ALLOWED_HOSTS = {
     "www.sec.gov",
     "data.sec.gov",
@@ -39,6 +44,7 @@ ALLOWED_HOSTS = {
     "registry.modelcontextprotocol.io",
     "modelcontextprotocol.io",
     "docs.astral.sh",
+    "img.shields.io",  # badge images only (test_shields_urls_are_badge_images_only)
 }
 GITHUB_PATHS = ("/SudiptoHaldar/mcp_server_edgar", "/modelcontextprotocol/")
 SECTION_KEYWORDS = (
@@ -58,6 +64,8 @@ REQUIRED_TOKENS = (
     "uvx mcp-server-edgar",
     "pip install mcp-server-edgar",
     PUBLIC_REPO,
+    PYPI_PROJECT,
+    REGISTRY_SEARCH,
     "filing_date",
     "report_date",
     "next_offset",
@@ -81,6 +89,8 @@ FORBIDDEN_PATTERNS = (
     r"req_\d{3}",
     r"v\d\.\d{2}\b",
     re.escape(mcp_edgar.__version__),
+    r"/versions/\d",  # a per-version Registry URL would go stale with the next release
+    r"Registry identity",
 )
 
 
@@ -156,6 +166,59 @@ def test_readme_urls_are_https_on_allowed_hosts(url: str) -> None:
 
 def test_readme_has_urls_to_check() -> None:
     assert len(set(URL_RE.findall(README_TEXT))) >= 5
+
+
+# --- README: badges and the identity sentence (req_005 v5.03) ------------------------------
+
+
+def test_badge_line_is_line_five_with_three_badges() -> None:
+    badges = BADGE_RE.findall(README_LINES[4])
+    assert [alt for alt, _, _ in badges] == ["CI", "PyPI", "MCP Registry"]
+    assert BADGE_RE.sub("", README_LINES[4]).strip() == ""
+    (_, ci_image, ci_link), (_, pypi_image, pypi_link), (_, reg_image, reg_link) = badges
+    assert ci_link == PUBLIC_REPO + "/actions/workflows/ci.yml"
+    assert ci_image == ci_link + "/badge.svg"
+    assert pypi_image == SHIELDS + "pypi/v/" + PROJECT["name"]
+    assert pypi_link == PYPI_PROJECT
+    label = quote(MARKER_NAME.replace("-", "--"), safe="")
+    assert reg_image == SHIELDS + "badge/MCP_Registry-" + label + "-blue"
+    assert reg_link == REGISTRY_SEARCH
+
+
+def test_badges_sit_below_the_marker_and_above_the_text() -> None:
+    assert README_LINES[2] == MARKER and README_LINES[3] == "" and README_LINES[5] == ""
+    assert BADGE_RE.search(README_TEXT.replace(README_LINES[4], "")) is None
+
+
+@pytest.mark.parametrize(
+    "url", sorted(u for u in set(URL_RE.findall(README_TEXT)) if u.startswith(SHIELDS))
+)
+def test_shields_urls_are_badge_images_only(url: str) -> None:
+    assert re.search(r"!\[[^\]]+\]\(" + re.escape(url) + r"\)", README_TEXT)
+    assert re.search(r"\)\]\(" + re.escape(url) + r"\)", README_TEXT) is None
+    assert re.search(r"(?<!!)\[[^\[\]]*\]\(" + re.escape(url) + r"\)", README_TEXT) is None
+    path = urlparse(url).path
+    assert path.startswith("/pypi/v/" + PROJECT["name"]) or path.startswith("/badge/")
+
+
+def test_shields_badges_exist() -> None:
+    assert sum(u.startswith(SHIELDS) for u in set(URL_RE.findall(README_TEXT))) == 2
+
+
+def test_identity_sentence_links_pypi_and_the_registry_search() -> None:
+    paragraph = next(
+        block
+        for block in README_TEXT.split("\n\n")
+        if block.startswith("Published on PyPI as")
+    )
+    assert "[`" + PROJECT["name"] + "`](" + PYPI_PROJECT + ")" in paragraph
+    assert "listed" in paragraph and "](" + REGISTRY_SEARCH + ")" in paragraph
+    assert paragraph.rstrip().endswith("as `" + MARKER_NAME + "`.")
+
+
+def test_registry_links_never_pin_a_version() -> None:
+    registry_urls = [u for u in URL_RE.findall(README_TEXT) if "registry.modelcontextprotocol" in u]
+    assert registry_urls and all(u == REGISTRY_SEARCH for u in registry_urls)
 
 
 # --- README: shape ------------------------------------------------------------------------
