@@ -1,6 +1,6 @@
 [project]
 name = "mcp-server-edgar"
-version = "0.1.0"
+version = "0.1.1"
 description = "Latest SEC filing and calendar-year filing history for a stock ticker, with official EDGAR links."
 readme = "README.md"
 license = "MIT"
