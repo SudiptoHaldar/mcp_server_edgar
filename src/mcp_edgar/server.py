@@ -49,18 +49,22 @@ from mcp_edgar.tickers import TickerResolver
 
 logger = logging.getLogger(__name__)
 
+# Sent once at initialize. Carries the vocabulary shared by every tool (the status set and what
+# each status adds) so the per-call tool descriptions stay short; they keep the status names and
+# point here for the meaning. Bound: < 1000 characters (tests/test_surface.py S3).
 SERVER_INSTRUCTIONS = (
-    "Read-only SEC EDGAR filing metadata for US-listed companies, looked up by stock ticker. "
-    "Tools: get_latest_filing returns the newest filing (optionally of given form types); "
-    "list_filings_by_year returns one calendar year, paged with offset=next_offset until it "
-    "is null; list_form_types lists the form codes to pass as forms. Years refer to "
-    "filing_date (when the SEC received the filing), not report_date. Results carry official "
-    "sec.gov links; the server never reads or summarises filing contents. If status is "
-    "'ambiguous', call again with the chosen candidate's cik. Resources: "
-    "edgar://companies/{ticker}/profile and edgar://companies/{ticker}/latest (or "
-    "edgar://issuers/{cik}/...) give the same records as the tools for a host to load "
-    "directly; edgar://form-types is the whole catalogue. Prompts: review_latest_filing, "
-    "review_filings_by_year and explain_form_types are guided workflows over these tools."
+    "Read-only SEC EDGAR filing metadata for US-listed companies, by stock ticker. Tools: "
+    "get_latest_filing returns the newest filing, optionally of given forms; "
+    "list_filings_by_year returns one calendar year, paged by offset=next_offset until null; "
+    "list_form_types lists the codes to pass as forms. Years refer to filing_date (when the "
+    "SEC received the filing), not report_date. Results carry official sec.gov links; the "
+    "server never reads filing contents. Each result has status and message: ok; not_found "
+    "(no issuer for the ticker); ambiguous (candidates lists the issuers; call again with "
+    "the chosen cik); invalid_input (field names the bad argument); upstream_error (SEC did "
+    "not answer; retryable, retry_after_seconds). Resources: edgar://companies/{ticker}/profile "
+    "and edgar://companies/{ticker}/latest (or edgar://issuers/{cik}/...) give the tools' "
+    "records; edgar://form-types is the catalogue. Prompts: review_latest_filing, "
+    "review_filings_by_year and explain_form_types are guided workflows."
 )
 
 mcp = MCPServer(name="SEC EDGAR Filings", version=__version__, instructions=SERVER_INSTRUCTIONS)
@@ -130,19 +134,13 @@ def get_latest_filing(
             previous call returned `"ambiguous"`; it must be listed under `ticker`.
 
     Returns:
-        A JSON object whose `status` is one of:
-        - `"ok"`: `company` {cik, name, ticker, exchange}, `forms` (normalised list or null),
-          `filing` {form, filing_date, report_date, accession_number, filing_url,
-          primary_document_url} or null when the company has no filing of those forms;
-          `filing_url` (the filing index page) is always present, `primary_document_url`
-          may be null.
-        - `"not_found"`: no SEC issuer is listed under `ticker`.
-        - `"ambiguous"`: several issuers share the ticker; `candidates` lists them
-          (cik, name, ticker, exchange) and none is chosen; call again with the chosen `cik`.
-        - `"invalid_input"`: `field` names the rejected argument (`ticker`, `forms` or `cik`).
-        - `"upstream_error"`: SEC EDGAR did not answer; `retryable` tells whether a retry
-          may help and `retry_after_seconds` when (may be null).
-        Every object carries a one-line `message`.
+        A JSON object with `status` and a one-line `message`. On `"ok"`: `company` {cik, name,
+        ticker, exchange}, `forms` (normalised list or null) and `filing` {form, filing_date,
+        report_date, accession_number, filing_url, primary_document_url}, or `filing` null when
+        the company has no filing of those forms; `filing_url` (the filing index page) is
+        always present, `primary_document_url` may be null. The other statuses (`not_found`,
+        `ambiguous` with `candidates`, `invalid_input` with `field`, `upstream_error` with
+        `retryable`) are defined in the server instructions.
 
     Example:
         `get_latest_filing("AAPL", ["10-K"])` returns Apple's most recent annual report.
@@ -190,19 +188,14 @@ def list_filings_by_year(
             previous call returned `"ambiguous"`; it must be listed under `ticker`.
 
     Returns:
-        A JSON object whose `status` is one of:
-        - `"ok"`: `company` {cik, name, ticker, exchange}, `year`, `forms`, `limit` (the
-          effective page size), `offset`, `total_count`, `returned_count`, `next_offset` (null
-          on the last page), `filings` (newest first; each has form, filing_date, report_date,
-          accession_number, filing_url, primary_document_url). An empty year is `"ok"` with
-          `total_count` 0.
-        - `"not_found"`: no SEC issuer is listed under `ticker`.
-        - `"ambiguous"`: several issuers share the ticker; `candidates` lists them; call again
-          with the chosen `cik`.
-        - `"invalid_input"`: `field` names the rejected argument (`ticker`, `year`, `forms`,
-          `limit`, `offset` or `cik`).
-        - `"upstream_error"`: SEC EDGAR did not answer; `retryable` says whether to retry.
-        Every object carries a one-line `message`. Page with `offset=next_offset` until null.
+        A JSON object with `status` and a one-line `message`. On `"ok"`: `company` {cik, name,
+        ticker, exchange}, `year`, `forms`, `limit` (the effective page size), `offset`,
+        `total_count`, `returned_count`, `next_offset` (null on the last page) and `filings`
+        (newest first; each has form, filing_date, report_date, accession_number, filing_url,
+        primary_document_url); an empty year is `"ok"` with `total_count` 0. Page with
+        `offset=next_offset` until null. The other statuses (`not_found`, `ambiguous` with
+        `candidates`, `invalid_input` with `field`, `upstream_error` with `retryable`) are
+        defined in the server instructions.
 
     Example:
         `list_filings_by_year("AAPL", 2025, ["10-K", "10-Q"])` lists Apple's 2025 reports.
@@ -250,13 +243,11 @@ def list_form_types(
         offset: Entries to skip, for paging; pass the previous result's `next_offset`.
 
     Returns:
-        A JSON object whose `status` is one of:
-        - `"ok"`: `query`, `limit`, `offset`, `total_count`, `returned_count`, `next_offset`
-          (null on the last page), `catalogue` {generated_on, quarters, sources},
-          `form_types` (each: form, description, amendment, filings, topics).
-        - `"invalid_input"`: `field` names the rejected argument (`query`, `limit` or
-          `offset`).
-        Every object carries a one-line `message`.
+        A JSON object with `status` and a one-line `message`. On `"ok"`: `query`, `limit`,
+        `offset`, `total_count`, `returned_count`, `next_offset` (null on the last page),
+        `catalogue` {generated_on, quarters, sources} and `form_types` (each: form,
+        description, amendment, filings, topics). `"invalid_input"` carries `field`, as
+        defined in the server instructions; no other status occurs.
 
     Example:
         `list_form_types("13G")` lists the Schedule 13G submission types and their counts.
