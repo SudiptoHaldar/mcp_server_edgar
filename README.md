@@ -307,6 +307,10 @@ uv run python scripts/refresh_form_types.py
 uv build
 ```
 
+Releases are published by the tag-triggered workflow in `.github/workflows/release.yml`: a
+`vX.Y.Z` tag on this repository builds, publishes to PyPI (Trusted Publishing, with attestations)
+and to the MCP Registry, and verifies both.
+
 Issues and pull requests: <https://github.com/SudiptoHaldar/mcp_server_edgar/issues>.
 
 ## License

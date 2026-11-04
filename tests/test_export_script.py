@@ -35,6 +35,7 @@ REQUIRED_IN_EXPORT = [
     ".gitignore",
     ".python-version",
     ".github/workflows/ci.yml",
+    ".github/workflows/release.yml",
     "scripts/check_artifact.py",
     "scripts/refresh_form_types.py",
     "scripts/inspector_checks.py",
@@ -179,6 +180,7 @@ def test_is_excluded_true(relpath: str) -> None:
         "src/mcp_edgar/release_number.md",
         "tests/fixtures/submissions_CIK0000320193.json",
         ".github/workflows/ci.yml",
+        ".github/workflows/release.yml",
     ],
 )
 def test_is_excluded_false(relpath: str) -> None:
